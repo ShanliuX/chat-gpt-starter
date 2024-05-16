@@ -18,7 +18,9 @@ app.register_error_handler(404, page_not_found)
 def index():
     if request.method == "POST":
         prompt = request.form['prompt']
-        answer = aiapi.generateChatResponse(prompt)
+        res = {}
+        res['answer'] = aiapi.generateChatResponse(prompt)
+        return jsonify(res), 200
     return render_template('index.html', **locals())
 
 
