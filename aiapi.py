@@ -1,7 +1,15 @@
 from openai import OpenAI
 import config
+import httpx
 
-client = OpenAI(api_key = config.DevelopmentConfig.OPENAI_KEY)
+client = OpenAI(
+    base_url="https://api.xiaoai.plus/v1",
+    api_key = config.DevelopmentConfig.OPENAI_KEY,
+    http_client=httpx.Client(
+        base_url="https://api.xiaoai.plus/v1",
+        follow_redirects=True,
+    ),
+)
 
 def generateChatResponse(prompt):
     messages = []
