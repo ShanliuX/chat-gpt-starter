@@ -92,6 +92,15 @@
       `;
       $("#chat-input").val('');
       $("#list-group").append(html_data);
+
+      $.ajax({
+        type:"POST",
+        url: "/",
+        data:{'prompt', question},
+        success: function(data){}
+      });
+
+      
     });
     
     
