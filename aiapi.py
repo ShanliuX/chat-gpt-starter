@@ -1,10 +1,7 @@
 from openai import OpenAI
 import config
 
-api_key = config.DevelopmentConfig.OPENAI_KEY
-
-client = OpenAI()
-client.api_key = api_key
+client = OpenAI(api_key = config.DevelopmentConfig.OPENAI_KEY)
 
 def generateChatResponse(prompt):
     messages = []
