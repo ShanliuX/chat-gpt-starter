@@ -13,7 +13,7 @@ def generateChatResponse(prompt):
     question = {}
     question['role'] = 'user'
     question['content'] = prompt
-
+    messages.append(question)
     
     response = client.chat.completions.create(model="gpt-3.5-turbo", messages=messages)
 
